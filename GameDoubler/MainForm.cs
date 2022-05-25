@@ -107,7 +107,7 @@ namespace GameDoubler
 
         void Start()
         {
-            reqValue.Text = rnd.Next(8, 256).ToString();
+            reqValue.Text = rnd.Next(256).ToString();
             btnCommand1.Text = "+1";
             btnCommand2.Text = "x2";
             btnReset.Text = "Сброс";
@@ -123,7 +123,7 @@ namespace GameDoubler
             valueBuff.Clear();
             currentNumber = 1;
             comCount = 0;
-            reqValue.Text = rnd.Next(8, 256).ToString();
+            reqValue.Text = rnd.Next(256).ToString();
             UpdateUI();
         }
 
@@ -138,8 +138,15 @@ namespace GameDoubler
         {
             if (currentNumber == int.Parse(reqValue.Text))
             {
-                MessageBox.Show($"Вы выиграли!\nИспользовано комманд: {comCount}", "Удвоитель", MessageBoxButtons.OK);
-                Reset();
+                MessageBox.Show($"Вы выиграли!\nИспользовано комманд: {comCount}", "Удвоитель", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (MessageBox.Show("Начать новую игру?", "Удвоитель", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Reset();
+                }
+                else 
+                {
+                    Close();
+                }
             }
         }
 

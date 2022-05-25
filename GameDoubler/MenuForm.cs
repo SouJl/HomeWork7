@@ -40,24 +40,24 @@ namespace GameDoubler
             Close();
         }
 
-        private void playButton_MouseHover(object sender, EventArgs e)
-        {
-            playButton.BackColor = Color.DarkSlateGray;
-        }
-
         private void playButton_MouseLeave(object sender, EventArgs e)
         {
             playButton.BackColor = Color.Teal;
         }
 
-        private void exitButton_MouseHover(object sender, EventArgs e)
-        {
-            exitButton.BackColor = Color.DarkSlateGray;
-        }
-
         private void exitButton_MouseLeave(object sender, EventArgs e)
         {
             exitButton.BackColor = Color.Teal;
+        }
+
+        private void playButton_MouseEnter(object sender, EventArgs e)
+        {
+            playButton.BackColor = Color.DarkSlateGray;
+        }
+
+        private void exitButton_MouseEnter(object sender, EventArgs e)
+        {
+            exitButton.BackColor = Color.DarkSlateGray;
         }
     }
 }
