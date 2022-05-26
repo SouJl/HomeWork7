@@ -12,33 +12,31 @@ namespace GameDoubler
 {
     public partial class MenuForm : Form
     {
-        public static MenuForm S;
-
-        public static void ResetVisible()
-        {
-            if (S != null)
-                S.Show();
-        }
-
         public MenuForm()
         {
             InitializeComponent();
             Text = "";
             StartPosition = FormStartPosition.CenterScreen;
-            S = this;
         }
+
+        #region ButtonClick
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            S.Hide();
+            Hide();
             MainForm frm = new MainForm();
             frm.ShowDialog();
+            Show();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        #endregion
+
+        #region MouseEnter/MouseLeave
 
         private void playButton_MouseLeave(object sender, EventArgs e)
         {
@@ -59,5 +57,7 @@ namespace GameDoubler
         {
             exitButton.BackColor = Color.DarkSlateGray;
         }
+
+        #endregion
     }
 }

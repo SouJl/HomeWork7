@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameDoubler
-{
+
+{    /// Мельников Александр Сергеевич
+     /// <summary>
+     /// Игра - Удвоитель
+     /// </summary>
     static class Program
     {
         /// <summary>

@@ -31,7 +31,7 @@ namespace GameGuessNumber
         {
             this.label1 = new System.Windows.Forms.Label();
             this.searchNumber = new System.Windows.Forms.TextBox();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.acceptButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -40,9 +40,9 @@ namespace GameGuessNumber
             this.label1.ForeColor = System.Drawing.Color.Teal;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 77);
+            this.label1.Size = new System.Drawing.Size(219, 77);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Впишите число, которое нужно отгадать";
+            this.label1.Text = "Впишите число, которое нужно будет отгадать";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // searchNumber
@@ -54,29 +54,33 @@ namespace GameGuessNumber
             this.searchNumber.Size = new System.Drawing.Size(219, 39);
             this.searchNumber.TabIndex = 1;
             // 
-            // saveButton
+            // acceptButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.Teal;
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(204)));
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(12, 154);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(219, 39);
-            this.saveButton.TabIndex = 2;
-            this.saveButton.Text = "Сохранить";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.acceptButton.BackColor = System.Drawing.Color.Teal;
+            this.acceptButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(204)));
+            this.acceptButton.ForeColor = System.Drawing.Color.White;
+            this.acceptButton.Location = new System.Drawing.Point(12, 144);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(219, 39);
+            this.acceptButton.TabIndex = 2;
+            this.acceptButton.Text = "Принять";
+            this.acceptButton.UseVisualStyleBackColor = false;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            this.acceptButton.MouseEnter += new System.EventHandler(this.acceptButton_MouseEnter);
+            this.acceptButton.MouseLeave += new System.EventHandler(this.acceptButton_MouseLeave);
             // 
             // WriteNumberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 218);
-            this.Controls.Add(this.saveButton);
+            this.ClientSize = new System.Drawing.Size(244, 199);
+            this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.searchNumber);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(260, 238);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(260, 238);
             this.Name = "WriteNumberForm";
             this.ShowIcon = false;
             this.Text = "WriteNumberForm";
@@ -89,6 +93,6 @@ namespace GameGuessNumber
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox searchNumber;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button acceptButton;
     }
 }

@@ -221,7 +221,6 @@ namespace GameDoubler
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.Text = "Form1";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

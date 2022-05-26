@@ -152,6 +152,9 @@ namespace GameGuessNumber
             this.Controls.Add(this.inNumber);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Teal;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(415, 382);
+            this.MinimumSize = new System.Drawing.Size(415, 382);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.panel1.ResumeLayout(false);

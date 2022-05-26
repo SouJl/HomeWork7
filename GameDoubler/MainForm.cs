@@ -30,7 +30,7 @@ namespace GameDoubler
             valueBuff.Push(currentNumber++);
             comCount++;
             UpdateUI();
-            CheckGameState();
+            CheckGameEnd();
         }
 
         private void btnCommand2_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace GameDoubler
             currentNumber *= 2;
             comCount++;
             UpdateUI();
-            CheckGameState();
+            CheckGameEnd();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -104,20 +104,26 @@ namespace GameDoubler
         #endregion
 
         #region Вспомогательные методы
-
+        
+        /// <summary>
+        /// Задание начальных параметров
+        /// </summary>
         void Start()
         {
             reqValue.Text = rnd.Next(256).ToString();
             btnCommand1.Text = "+1";
             btnCommand2.Text = "x2";
             btnReset.Text = "Сброс";
-            Text = "";
+            Text = "Удвоитель";
             StartPosition = FormStartPosition.CenterScreen;
             BackColor = Color.White;
             valueBuff = new Stack<int>();
             UpdateUI();
         }
 
+        /// <summary>
+        /// Сброс к начальным значениям
+        /// </summary>
         private void Reset()
         {
             valueBuff.Clear();
@@ -127,6 +133,9 @@ namespace GameDoubler
             UpdateUI();
         }
 
+        /// <summary>
+        /// Обновление интерфейса
+        /// </summary>
         private void UpdateUI()
         {
             lblNumber.Text = currentNumber.ToString();
@@ -134,7 +143,10 @@ namespace GameDoubler
             minReqCommand.Text = FindMinCommandCount(int.Parse(reqValue.Text)).ToString();
         }
 
-        private void CheckGameState()
+        /// <summary>
+        /// Провкрка завершения игры
+        /// </summary>
+        private void CheckGameEnd()
         {
             if (currentNumber == int.Parse(reqValue.Text))
             {
@@ -150,6 +162,11 @@ namespace GameDoubler
             }
         }
 
+        /// <summary>
+        /// Нахождение минимального числа ходов
+        /// </summary>
+        /// <param name="searchValue"></param>
+        /// <returns></returns>
         private int FindMinCommandCount(int searchValue)
         {
             int count = 0;
@@ -169,11 +186,6 @@ namespace GameDoubler
             return count;
         }
 
-        #endregion
-
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MenuForm.ResetVisible();
-        }
+        #endregion   
     }
 }

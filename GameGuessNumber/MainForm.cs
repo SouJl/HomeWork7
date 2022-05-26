@@ -1,25 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GameGuessNumber
 {
     public partial class MainForm : Form
     {
-        public static bool isFileMode;
-
         Random rnd = new Random();
         int searchNumber = 0;
         int attemptCount = 0;
         string searchResultStr;
-        string searchNumberFilePath = "searchNumber.txt";
 
         public MainForm()
         {
@@ -28,31 +18,39 @@ namespace GameGuessNumber
             Start();
         }
 
-        void Start() 
+        /// <summary>
+        /// Ввод начальных значение
+        /// </summary>
+        /// <param name="value"></param>
+        void Start(int value = -1) 
         {
-            if (File.Exists(searchNumberFilePath))
+            if (value == -1)
             {
-                if(MessageBox.Show("Использовать число из файла?","Угадай число", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    searchNumber = int.Parse(File.ReadAllText(searchNumberFilePath));
-                else
-                    searchNumber = rnd.Next(1, 100);
+                searchNumber = rnd.Next(1, 100);
             }
             else 
             {
-                searchNumber = rnd.Next(1, 100);
-            }         
+                searchNumber = value;
+            }
             attemptCount = 10;
             inNumber.Text = "";
             searchResultStr = "Ожидание ввода числа...";
             UpdateUI();
         }
 
+        /// <summary>
+        /// Обновление интерфейса игры
+        /// </summary>
         void UpdateUI() 
         {
             turnLeftCount.Text = attemptCount.ToString();
             searchResult.Text = searchResultStr;
         }
 
+        /// <summary>
+        /// Обработка завершения игры
+        /// </summary>
+        /// <param name="isWin"></param>
         void GameEnd(bool isWin) 
         {
             if (isWin)
@@ -73,6 +71,8 @@ namespace GameGuessNumber
                 Close();
             }
         }
+
+        #region ButtonsActions
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
@@ -98,12 +98,11 @@ namespace GameGuessNumber
             else inNumber.Text = "";
         }
 
-
         private void guessButton_Click(object sender, EventArgs e)
         {
             WriteNumberForm form = new WriteNumberForm();
             form.ShowDialog();
-            Start();
+            Start(form.SearchNumber);
         }
 
         private void AcceptButton_MouseLeave(object sender, EventArgs e)
@@ -125,5 +124,7 @@ namespace GameGuessNumber
         {
             guessButton.BackColor = Color.Teal;
         }
+
+        #endregion
     }
 }

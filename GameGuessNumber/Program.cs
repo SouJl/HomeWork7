@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace GameGuessNumber
 {
+    /// Мельников Александр Сергеевич
+    /// <summary>
+    /// Игра - Угадай число
+    /// </summary>
     static class Program
     {
         /// <summary>
